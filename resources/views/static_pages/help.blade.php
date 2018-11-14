@@ -1,6 +1,9 @@
 @extends('layouts.default')
-@section('title','帮助')
+@section('title','主页')
 
 @section('content')
-<h1>帮助</h1>
+  <div class="jumbotron">
+    <h1>帮助</h1>
+
+  </div>
 @stop

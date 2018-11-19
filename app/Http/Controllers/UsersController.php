@@ -27,7 +27,7 @@ class UsersController extends Controller
       $user = User::create([
         'name'=>$request->name,
         'email'=>$request->email,
-        'password' => $request->password
+        'password' => bcrypt($request->password)
       ]);
       session()->flash('success','欢迎，来到laravel!');
       return redirect(route('users.show',[$user]));

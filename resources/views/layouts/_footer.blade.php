@@ -1,8 +1,8 @@
 <div class="col-md-12">
 <footer class="footer">
     <small>
-        <img class="brand-icon" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png">
-        <a href="www.laravel.com">
+      <img class="brand-icon" src="http://www.jovision.com/images/logo.png">
+          <a href="www.laravel.com">
             Laravel
         </a>
     </small>

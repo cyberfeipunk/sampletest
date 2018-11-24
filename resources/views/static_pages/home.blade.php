@@ -11,7 +11,8 @@
       一切，将从这里开始。
     </p>
     <p>
-      <a class="btn btn-lg btn-success" href="{{ route('users.create') }}" role="button">现在注册</a>
+      <a class="btn btn-lg btn-success" href="{{ route('users.index') }}" role="button">用户列表</a>
+
     </p>
   </div>
 @stop

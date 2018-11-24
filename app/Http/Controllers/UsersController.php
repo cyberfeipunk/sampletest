@@ -7,7 +7,9 @@ use App\Models\User;
 class UsersController extends Controller
 {
     public function index(){
-      return view('users.index');
+      $usersList = User::all();
+      //echo '<pre>';print_r($usersList);
+      return view('users.index',compact('usersList'));
     }
     //
     public function create()

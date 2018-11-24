@@ -20,7 +20,7 @@ function get_db_config(){
       'host' => env('DB_HOST','localhost'),
       'database' => env('DB_DATABASE','sample'),
       'username' => env('DB_USERNAME','homestead'),
-      'paswword' => env('DB_PASSWORD','secret')
+      'password' => env('DB_PASSWORD','secret')
     ];
   }
 }

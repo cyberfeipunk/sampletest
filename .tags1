@@ -4,6 +4,4 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-get_db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^function get_db_config(){$/;"	function	line:7
-db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^        return $db_config = [$/;"	variable	line:10
-db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^    return $db_config = [$/;"	variable	line:18
+db_config	/Users/dingfei/workspace/htdocs/sample/config/database.php	/^$db_config = get_db_config();$/;"	variable	line:2

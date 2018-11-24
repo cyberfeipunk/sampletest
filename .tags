@@ -11,3 +11,6 @@ get_db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^fun
 url	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^    $url = parse_url(getenv("database_url"));$/;"	variable	line:9
 db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^    return $db_config = [$/;"	variable	line:10
 db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^    return $db_config = [$/;"	variable	line:18
+TestController	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/TestController.php	/^class TestController extends Controller$/;"	class	line:7
+test	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/TestController.php	/^    public function test(){$/;"	function	line:9
+url	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/TestController.php	/^      $url = parse_url(getenv("DATABASE_URL"));$/;"	variable	line:10

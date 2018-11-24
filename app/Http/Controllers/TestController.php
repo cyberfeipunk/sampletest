@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class TestController extends Controller
 {
     public function test(){
-        return 'test';
+      $url = parse_url(getenv("DATABASE_URL"));
+      return $url;
     }
 }

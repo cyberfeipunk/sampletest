@@ -32,6 +32,7 @@ class UsersController extends Controller
         'password' => bcrypt($request->password)
       ]);
       session()->flash('success','欢迎，来到laravel!');
-      return redirect(route('users.show',[$user]));
+      //return redirect(route('users.show',[$user]));
+      return redirect()->route("users.show",[$user]);
     }
 }

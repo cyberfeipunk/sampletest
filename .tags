@@ -1,0 +1,13 @@
+UsersController	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/UsersController.php	/^class UsersController extends Controller$/;"	class	line:7
+index	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/UsersController.php	/^    public function index(){$/;"	function	line:9
+usersList	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/UsersController.php	/^      $usersList = User::all();$/;"	variable	line:10
+create	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/UsersController.php	/^    public function create()$/;"	function	line:15
+show	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/UsersController.php	/^    public function show(User $user){$/;"	function	line:19
+store	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/UsersController.php	/^    public function store(Request $request){$/;"	function	line:23
+user	/Users/dingfei/workspace/htdocs/sample/app/Http/Controllers/UsersController.php	/^      $user = User::create([$/;"	variable	line:29
+app	/Users/dingfei/workspace/htdocs/sample/bootstrap/app.php	/^$app = new Illuminate\\Foundation\\Application($/;"	variable	line:16
+get_db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^function get_db_config(){$/;"	function	line:7
+url	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^    $url = parse_url(getenv("database_url"));$/;"	variable	line:9
+db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^    return $db_config = [$/;"	variable	line:10
+db_config	/Users/dingfei/workspace/htdocs/sample/bootstrap/helpers.php	/^    return $db_config = [$/;"	variable	line:18
+db_config	/Users/dingfei/workspace/htdocs/sample/config/database.php	/^$db_config = get_db_config();$/;"	variable	line:2

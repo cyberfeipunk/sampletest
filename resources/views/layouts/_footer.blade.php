@@ -2,9 +2,7 @@
 <footer class="footer">
     <small>
       <img class="brand-icon" src="http://www.jovision.com/images/logo.png">
-          <a href="www.laravel.com">
-            Laravel
-        </a>
+          
     </small>
     <nav>
         <ul>

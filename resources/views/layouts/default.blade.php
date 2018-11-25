@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@yield('title','Sample APP')-Laravel入门学习</title>
-    <link rel="stylesheet" href="/css/app.css">
+    <title>@yield('title','Sample APP')-中维世纪</title>
+    <link rel="stylesheet" href="/css/app.css?x=2">
 </head>
 <body>
     @include('layouts._header')

@@ -22,7 +22,7 @@ Route::get('/about','StaticPagesController@about')->name('about');
 
 //Route::get('signup','UsersController@create')->name('signup');
 
-
+//users manage
 Route::resource('users','UsersController');
 //Route::get('/users','UsersController@index')->name('users');
 //Route::get('/users/{user}','UsersController@show')->name('users.show');
@@ -31,3 +31,9 @@ Route::resource('users','UsersController');
 //Route::post('/users','UsersController@store')->name('users.store');
 //Route::patch('/users/{user}','UsersController@update')->name('users.update');
 //Route::delete('/users/{user}','UsersController@destroy')->name('users.distroy');
+
+//login && logout
+
+Route::get('login','SessionsController@create')->name('login');
+Route::post('login','SessionsController@store')->name('login');
+Route::delete('logout','SessionsController@destroy')->name('logout');

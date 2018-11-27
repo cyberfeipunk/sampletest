@@ -11,7 +11,14 @@ class SessionsController extends Controller
     //
 
     public function create(){
-      return view('sessions.create');
+      if(Auth::check()){
+        session()->flash('warning','已经登录过！请先退出！');
+        $user = Auth::user();
+        return redirect()->route('users.show',[$user]);
+      }else{
+        return view('sessions.create');
+      }
+
     }
 
     public function store(Request $request){
@@ -19,8 +26,7 @@ class SessionsController extends Controller
           'email'=>'required|email|max:255',
           'password' => 'required'
         ]);
-
-        if(Auth::attempt($credentials)){
+        if(Auth::attempt($credentials,$request->has('remember'))){
           $user = Auth::user();
           session()->flash('success','欢迎，回来!'.$user->name);
           return redirect()->route('users.show',$user);
@@ -28,7 +34,6 @@ class SessionsController extends Controller
           session()->flash('danger','邮箱密码验证失败');
           return redirect()->back();
         }
-
         return;
     }
 

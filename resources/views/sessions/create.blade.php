@@ -20,6 +20,9 @@
             <label for="password">密码</label>
             <input type="password" class="form-control" name="password" value="{{ old('password') }}">
         </div>
+        <div class="from-group">
+          <label><input type="checkbox" name="remember">记住我,下次自动登录！</label>
+        </div>
         <button type="submit" class="btn btn-primary">登录</button>
       </form>
       <p>还没有账号？<a href="{{ route("users.create") }}">现在注册</a></p>

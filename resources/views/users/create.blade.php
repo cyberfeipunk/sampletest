@@ -21,6 +21,11 @@
           <input type="text" name="email" class="form-control" value="{{ old('email') }}">
         </div>
 
+        <div>
+          <label for='age'>年龄:</label>
+          <input type="text" name="age" class="form-control" value="{{ old('age') }}">
+        </div>
+
         <div class="from-group">
           <label for="password">密码</label>
           <input type="password" name="password" class="form-control" value="{{ old('password') }}">

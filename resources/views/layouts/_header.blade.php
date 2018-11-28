@@ -11,8 +11,11 @@
               {{ Auth::user()->name }}<b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              @if(Auth::user()->can('list',Auth::user()))
+              <li><a href="{{ route('users.index') }}">用户列表</a></li>
+              @endif
               <li><a href="{{ route('users.show',Auth::user()) }}">个人中心</a></li>
-              <li><a href="#">编辑资料</a></li>
+              <li><a href="{{ route('users.edit',Auth::user()) }}">编辑资料</a></li>
               <li class="divider"></li>
               <li>
                 <a href="#" id="logout">

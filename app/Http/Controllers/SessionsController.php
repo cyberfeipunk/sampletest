@@ -9,6 +9,13 @@ use Auth;
 class SessionsController extends Controller
 {
     //
+    public function __construct(){
+      $this->middleware(
+        "guest",[
+          'only' => ['create'],
+        ]
+      );
+    }
 
     public function create(){
       if(Auth::check()){
@@ -29,7 +36,8 @@ class SessionsController extends Controller
         if(Auth::attempt($credentials,$request->has('remember'))){
           $user = Auth::user();
           session()->flash('success','欢迎，回来!'.$user->name);
-          return redirect()->route('users.show',$user);
+          //return redirect()->route('users.show',$user);
+          return redirect()->intended(route('users.show',[$user]));
         }else{
           session()->flash('danger','邮箱密码验证失败');
           return redirect()->back();

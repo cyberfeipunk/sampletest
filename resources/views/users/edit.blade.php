@@ -1,10 +1,50 @@
 @extends('layouts.default')
-@section('title','主页')
+@section('title','编辑用户-'.$user->name)
 
 @section('content')
-  <div class="jumbotron">
-    <h1>用户列表</h1>
-    <a href="{{ route('users.create') }}">注册</a>
+<div class="col-md-offset-2 col-md-8">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5>更新个人资料</h5>
+    </div>
+    <div class="panel-body">
+      @include('shared._errors')
+      <div class="gravatar_edit">
+        <a href="http://gravatar.com/emails" target="_blank">
+          <img src="{{ $user->gravatar('200') }}" alt="{{ $user->name }}" class="gravatar" />
+        </a>
+      </div>
+      <form method="post" action="{{ route('users.update',$user) }}">
+        {{ method_field('PATCH') }}
+        {{ csrf_field() }}
+        <div class="form-group">
+          <label for='email'>邮箱</label>
+          <input type="text" name="email" class="form-control" value="{{ $user->email }}" disabled>
+        </div>
+        <div class="form-group">
+          <label for='name'>姓名</label>
+          <input type="text" name="name" class="form-control" value="{{ $user->name }}" >
+        </div>
 
+        <div class="form-group">
+          <label for='age'>年龄</label>
+          <input type="text" name="age" class="form-control" value="{{ $user->age }}" >
+        </div>
+
+        <div class="form-group">
+          <label for='password'>密码</label>
+          <input type="text" name="password" class="form-control" value="{{ old('password') }}" >
+        </div>
+
+        <div class="form-group">
+          <label for='password_confirmation'>确认密码</label>
+          <input type="text" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}" >
+        </div>
+
+        <button type="submit" class="btn btn-primary">更新</button>
+
+      </form>
+    </div>
   </div>
+</div>
 @stop

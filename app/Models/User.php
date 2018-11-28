@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','age'
     ];
 
     /**
@@ -36,5 +36,21 @@ class User extends Authenticatable
     {
       $hash = md5(strtolower(trim($this->attributes['email'])));
       return "http://www.gravatar.com/avatar/$hash?s=$size";
+    }
+
+    public function isadmin(){
+      if($this->is_admin===1){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public function issuper(){
+      if($this->is_super===1){
+        return true;
+      }else{
+        return false;
+      }
     }
 }

@@ -9,7 +9,7 @@ class UsersController extends Controller
 {
     public function __construct(){
       $this->middleware('auth',[
-        'except' => ['create','store','show','create','index']
+        'except' => ['create','store','show','create']
       ]);
       $this->middleware(
         "guest",[
@@ -21,11 +21,11 @@ class UsersController extends Controller
       //]);
     }
     public function index(){
-      Auth::check();
-      if(Auth::user()->cant('list',Auth::user())){
-        session()->flash('danger','您无权浏览');
-        return redirect()->back();
-      }
+      // Auth::check();
+      // if(Auth::user()->cant('list',Auth::user())){
+      //   session()->flash('danger','您无权浏览');
+      //   return redirect()->back();
+      // }
       //$users = User::all();
       $users = User::paginate(10);
       //echo '<pre>';print_r($usersList);

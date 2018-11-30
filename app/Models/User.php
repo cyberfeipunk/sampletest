@@ -4,20 +4,19 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Notifications\ResetPassword;
 class User extends Authenticatable
 {
     use Notifiable;
 
     protected $table = 'users';
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','age'
+        'name', 'email', 'password','age',' activated'
     ];
 
     /**
@@ -28,6 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function boot(){
+      parent::boot();
+      static::creating(function($user){
+        $user->activation_token = str_random(30);
+      });
+    }
 
     /**
     * 头像
@@ -53,4 +59,9 @@ class User extends Authenticatable
         return false;
       }
     }
+
+    public function SendsPasswordResetNotification($token){
+      $this->notify(new ResetPassword($token));
+    }
+
 }

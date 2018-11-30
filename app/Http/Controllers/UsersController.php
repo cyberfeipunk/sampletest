@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
+use Mail;
 class UsersController extends Controller
 {
     public function __construct(){
       $this->middleware('auth',[
-        'except' => ['create','store','show','create']
+        'except' => ['create','store','show','create','confirmEmail','resendConfirmEmail']
       ]);
       $this->middleware(
         "guest",[
@@ -56,10 +57,11 @@ class UsersController extends Controller
         'age'=>$request->age,
         'password' => bcrypt($request->password)
       ]);
-      session()->flash('success','欢迎，来到laravel!');
-      Auth::login($user);
+      session()->flash('success',"欢迎，来到laravel!请进入您的邮箱确认邮箱完成注册！");
+      //Auth::login($user);
       //return redirect(route('users.show',[$user]));
-      return redirect()->route("users.show",[$user]);
+      $this->sendEmailConfirmationTo($user);
+      return redirect()->route("home");
     }
 
     public function edit(User $user){
@@ -110,5 +112,51 @@ class UsersController extends Controller
 
       session()->flash('success','成功删除用户！');
       return back();
+    }
+
+    public function confirmEmail($token){
+
+      $user = User::where(['activation_token'=>$token])->firstorfail();
+      if($user){
+        if($user->activated){
+          session()->flash('warning','您的账号已经激活不需要再次激活!');
+          return redirect()->route('home');
+        }else{
+          $user->activated = 1;
+          $user->save();
+          //$result = $user->update(['activated'=>true,'aa'=>'3']);
+          session()->flash('success','激活成功，欢迎您来到Sample!');
+          Auth::login($user);
+          return redirect()->route('home');
+        }
+      }else{
+        session()->flash('danger','请不要瞎搞!');
+        return redirect()->route('home');
+      }
+
+    }
+
+    public function resendConfirmEmail($user){
+      $user = User::find($user);
+      if(empty($user)){
+        session()->flash('danger','未找到客户！');
+        redirect(route('home'));
+      }
+      $this->sendEmailConfirmationTo($user);
+      session()->flash('success','确认邮件发送成功！请尽快前往注册邮箱进行确认');
+      return redirect()->route('home');
+    }
+
+
+    protected function sendEmailConfirmationTo($user){
+      $view = 'emails.confirm';
+      $data = compact('user');
+      $from = '457286213@qq.com';
+      $name = 'Sample';
+      $to = $user->email;
+      $subject = "感谢您注册Sample应用，请确认你的邮箱！";
+       Mail::send($view,$data,function($message)use($from,$name,$to,$subject){
+         $message->from($from,$name)->to($to)->subject($subject);
+       });
     }
 }

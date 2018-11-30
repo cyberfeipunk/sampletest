@@ -21,7 +21,7 @@ class UserPolicy
 
     public function update(User $currentUser,User $user){
       //if(!$currentUser->isadmin and !$currentUser->issuper){
-      if(!$currentUser->isadmin() and !$currentUser->issuper()){
+      if(!$currentUser->isadmin()){
         return $currentUser->id === $user->id;
       }else{
         return true;

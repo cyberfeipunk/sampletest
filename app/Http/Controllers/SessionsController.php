@@ -25,7 +25,6 @@ class SessionsController extends Controller
       }else{
         return view('sessions.create');
       }
-
     }
 
     public function store(Request $request){
@@ -35,9 +34,18 @@ class SessionsController extends Controller
         ]);
         if(Auth::attempt($credentials,$request->has('remember'))){
           $user = Auth::user();
-          session()->flash('success','欢迎，回来!'.$user->name);
-          //return redirect()->route('users.show',$user);
-          return redirect()->intended(route('users.show',[$user]));
+          if($user->activated){
+            session()->flash('success','欢迎，回来!'.$user->name);
+            //return redirect()->route('users.show',$user);
+            return redirect()->intended(route('users.show',[$user]));
+          }else{
+            Auth::logout();
+            session()->flash('danger',"对不起您还没有进行邮箱确认！请先到您的个人邮箱中进行邮箱确认！<a href='".route('resendConfirmEmail',$user)."'>重新发送</a>");
+            return redirect(route('home'));
+          }
+
+
+
         }else{
           session()->flash('danger','邮箱密码验证失败');
           return redirect()->back();

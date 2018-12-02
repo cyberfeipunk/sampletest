@@ -6,6 +6,7 @@
 </head>
 <body>
     @include('layouts._header')
+    @include('layouts._nav')
     <div class="container">
         <div class="col-md-offset-1 col-md-10">
             @include('shared._message')

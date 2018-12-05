@@ -41,7 +41,10 @@ class UsersController extends Controller
     }
 
     public function show(User $user){
-        return view('users.show',compact('user'));
+        $feed_items = [];
+        //$feed_items = $user->feed();
+        $feed_items = $user->feed()->paginate(10);
+        return view('users.show',compact('user','feed_items'));
     }
 
     public function store(Request $request){
@@ -136,6 +139,12 @@ class UsersController extends Controller
 
     }
 
+
+
+
+
+
+
     public function resendConfirmEmail($user){
       $user = User::find($user);
       if(empty($user)){
@@ -159,4 +168,10 @@ class UsersController extends Controller
          $message->from($from,$name)->to($to)->subject($subject);
        });
     }
+
+
+
+
+
+
 }

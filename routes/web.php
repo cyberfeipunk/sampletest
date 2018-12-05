@@ -45,4 +45,14 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
 
-Route::get('statuses/list','StatusesController@list')->name('statuses');
+Route::get('statuses','StatusesController@index')->name('statuses');
+Route::resource('statuses','StatusesController',['only'=>['store','destroy']]);
+
+Route::get('users/{user}/followings','UsersController@followings')->name('users.followings');
+Route::get('users/{user}/followers','UsersController@followings')->name('users.followers');
+
+Route::post('followers/{user}','FollowersController@store')->name('followers.store');
+Route::delete('followers/{user}','FollowersController@destroy')->name('followers.destroy');
+
+Route::get('followers/{user}/followings','FollowersController@followings')->name('followers.followings');
+Route::get('followers/{user}/followers','FollowersController@followers')->name('followers.followers');

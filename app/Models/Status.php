@@ -3,14 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Status extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\User;
+class Status extends Authenticatable
 {
     //
     protected $table = 'statuses';
+    protected $fillable = ['content'];
 
     public function user(){
-      $this->belongsto(User::class);
+      return $this->belongsTo(User::class);
     }
+
+
+
 
 }

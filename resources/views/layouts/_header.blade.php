@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse" id="header">
   <div class="container">
     <div class="col-md-offset-1 col-md-10">
       <a href="{{ route('home') }}" id="logo">中维世纪</a>

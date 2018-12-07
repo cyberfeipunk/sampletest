@@ -161,7 +161,8 @@ aside {
     padding: 0 10px;
     text-align: center;
     width: 33%;
-    border-left:1px solid $gray-lighter;
+    //border-left:1px solid $gray-lighter;
+    border:none;
     &:first-child{
       padding-left: 0px;
       border: 0;

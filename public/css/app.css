@@ -8571,7 +8571,7 @@ aside section span {
   padding: 0 10px;
   text-align: center;
   width: 33%;
-  border-left: 1px solid #005BAC;
+  border: none;
 }
 
 .stats a:first-child {

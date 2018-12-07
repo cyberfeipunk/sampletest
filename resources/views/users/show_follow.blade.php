@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title','{{ $title }}')
+@section('title',$title)
 @section('content')
     <div class="col-md-offset-2 col-md-8" id="show_follow">
         <h1>{{ $title }}</h1>
@@ -12,7 +12,6 @@
                 </li>
             @endforeach
         </ul>
-
         {!! $users->render() !!}
     </div>
 @stop

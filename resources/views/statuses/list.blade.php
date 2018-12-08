@@ -1,5 +1,4 @@
 @extends('layouts.default')
-use App\Models\User;
 
 @section('title','微博列表')
 

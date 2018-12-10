@@ -43218,7 +43218,10 @@ window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 Vue.component('example-component', __webpack_require__("./resources/assets/js/components/ExampleComponent.vue"));
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    message: 'hello vue.js'
+  }
 });
 
 /***/ }),

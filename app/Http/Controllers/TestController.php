@@ -7,6 +7,6 @@ use App\models\User;
 class TestController extends Controller
 {
     public function test(){
-      var_dump(user::class);
+      return view('test.test');
     }
 }

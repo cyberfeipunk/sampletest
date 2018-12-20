@@ -6,7 +6,7 @@
 <div class="col-md-offset-2 col-md-8">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4>注册</h5>
+      <h4>注册</h4>
     </div>
     <div class="panel-body">
       @include('shared._errors')

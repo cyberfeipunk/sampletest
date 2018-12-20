@@ -43208,6 +43208,7 @@ module.exports = function(module) {
 __webpack_require__("./resources/assets/js/bootstrap.js");
 
 window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
+var $ = __webpack_require__("./node_modules/jquery/dist/jquery.js");
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -43222,6 +43223,10 @@ var app = new Vue({
   data: {
     message: 'hello vue.js'
   }
+});
+
+$(function () {
+  alert('jquery');
 });
 
 /***/ }),

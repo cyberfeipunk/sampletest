@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+var $ = require('jquery');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -22,4 +23,8 @@ const app = new Vue({
     data:{
         message:'hello vue.js'
     }
+});
+
+$(function(){
+   alert('jquery');
 });
